@@ -3,7 +3,7 @@
 A desk setup for Cursor: a 12-key, 3-knob macro pad for prompts and model switching, plus a small WiFi display that shows agent status live.
 
 <p align="center">
-  <img src="device-mockup.png" alt="Cursor status display on the desk" width="480">
+  <img src="device-mockup.png?raw=1" alt="Cursor status display and macropad" width="640">
 </p>
 
 ```
