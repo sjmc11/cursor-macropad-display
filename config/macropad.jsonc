@@ -1,0 +1,200 @@
+// Macropad config — edits are picked up automatically on the next key press.
+//
+// Input ids:  L<layer>.K<1-12>            keys, numbered as in the Mini_Keyboard app
+//             L<layer>.<knob>.<left|right|press>   knob = big | mid | small
+// See docs/mini-keyboard-mapping.md for where each one sits physically.
+//
+// Step types:
+//   { "command": "<vscode/cursor command id>", "args": ..., "optional": true }
+//   { "keys": "cmd+shift+l" }          pressed via the Hammerspoon bridge
+//   { "prompt": "<prompts/*.md id>", "mode": "paste" | "paste+send" | "newChat+send" }
+//   { "terminal": "npm test", "name": "Tests" }   sends text to a named terminal
+//   { "shell": "git fetch" }           runs in the workspace, output in the Macropad output channel
+//   { "chat": "focus" | "newChat" | "send" }   runs the matching "chat" steps below
+//   { "browser": "focusOrNew" | "new" }   focus an open Cursor browser tab (or open one) / always open a new one
+//   { "delay": 150 }  { "notify": "Done" }
+//
+// Lines marked VERIFY use Cursor's default shortcuts / command ids as I understand them.
+// If one doesn't work, run "Macropad: Find command IDs" and swap in the right id.
+{
+  "promptsDir": "../prompts",
+  "bridge": { "port": 47615, "tokenFile": "~/.macropad/token" },
+  "defaults": {
+    "sendMode": "paste+send",      // initial mode; layer 2 middle knob changes it
+    "afterKeysDelayMs": 60,
+    "beforeSendDelayMs": 120
+  },
+
+  // How the extension talks to Cursor's chat.
+  // focus/newChat use VS Code commands (no bridge needed).
+  // send and paste still use bridge keystrokes (requires Hammerspoon Accessibility).
+  "chat": {
+    "focus":   [{ "command": "composer.openComposer" }, { "delay": 200 }],
+    "newChat": [{ "command": "composer.newAgentChat" }, { "delay": 400 }],
+    "send":    [{ "keys": "enter" }]
+  },
+
+  "cycles": {
+    "prompts":   { "label": "Prompt", "source": "prompts" },
+    "sendMode":  { "label": "Send mode", "source": "sendModes" },
+    "branches":  { "label": "Branch", "source": "gitBranches", "count": 15 },
+    // Live list from Cursor Settings → Models (state.vscdb). Twist applies immediately.
+    "models": {
+      "label": "Model",
+      "source": "cursorModels",
+      "applyOnNavigate": true
+    }
+  },
+
+  "inputs": {
+    // ───────────── Layer 1 · Agent ─────────────
+    "L1.K9":  { "label": "New agent chat",        "steps": [{ "chat": "newChat" }] },
+    "L1.K5":  { "label": "Add selection to chat", "steps": [{ "keys": "cmd+shift+l" }] },                        // VERIFY
+    "L1.K1":  {
+      "label": "Toggle chat panel",
+      "steps": [
+        {
+          "command": "workbench.action.toggleAuxiliaryBar"
+        },
+        {
+          "notify": "Toggle chat"
+        }
+      ]
+    },
+    "L1.K10": { "label": "Accept all",            "steps": [{ "keys": "cmd+enter" }] },                          // VERIFY
+    "L1.K6":  { "label": "Reject all",            "steps": [{ "keys": "cmd+backspace" }] },                      // VERIFY
+    "L1.K2":  {
+      "label": "Open Browser",
+      "steps": [
+        {
+          "browser": "focusOrNew"
+        },
+        {
+          "notify": "Browser"
+        }
+      ]
+    },
+    "L1.K11": { "label": "Ask / Agent mode",      "steps": [{ "keys": "cmd+." }] },                              // VERIFY
+    "L1.K7":  { "label": "Next model",            "steps": [{ "keys": "cmd+/" }] },                              // VERIFY
+    "L1.K3": {
+      "label": "Fix problems",
+      "steps": [
+        {
+          "prompt": "fix-problems",
+          "mode": "paste+send"
+        }
+      ]
+    },
+    "L1.K8":  { "label": "Review this file",      "steps": [{ "prompt": "review-file" }] },
+    "L1.K4":  {
+      "label": "Cycle agent mode",
+      "steps": [
+        {
+          "command": "composer.openModeMenu"
+        },
+        {
+          "notify": "Cycle agent mode"
+        }
+      ]
+    },
+
+    // Cursor only has "loop to next model", so both directions step forward.
+    "L1.big.left":   { "label": "Next model", "steps": [{ "keys": "cmd+/" }] },                                 // VERIFY
+    "L1.big.right":  { "label": "Next model", "steps": [{ "keys": "cmd+/" }] },                                 // VERIFY
+    "L1.big.press":  { "label": "Focus chat", "steps": [{ "chat": "focus" }] },
+    // Cycles effort/thinking when the active agent model exposes isCycleableByHotkey; no-ops on Auto.
+    "L1.mid.left":  { "label": "Prev effort", "steps": [{ "command": "macropad.cycleModelEffort", "args": { "dir": "prev" } }] },
+    "L1.mid.right": { "label": "Next effort", "steps": [{ "command": "macropad.cycleModelEffort", "args": { "dir": "next" } }] },
+    // ───────────── Layer 2 · Prompts ─────────────
+    "L2.K9":  { "label": "Write tests",          "steps": [{ "prompt": "write-tests" }] },
+    "L2.K5":  { "label": "Add TS types",         "steps": [{ "prompt": "add-types" }] },
+    "L2.K1":  { "label": "Refactor to composables", "steps": [{ "prompt": "refactor-composables" }] },
+    "L2.K10": { "label": "Tailwind tidy-up",     "steps": [{ "prompt": "tailwind-tidy" }] },
+    "L2.K6":  { "label": "A11y audit",           "steps": [{ "prompt": "a11y-audit" }] },
+    "L2.K2":  { "label": "Find bugs",            "steps": [{ "prompt": "find-bugs" }] },
+    "L2.K11": { "label": "Plan before coding",   "steps": [{ "prompt": "plan-first" }] },
+    "L2.K7":  { "label": "PR description",       "steps": [{ "prompt": "pr-description" }] },
+    "L2.K3":  { "label": "Simplify",             "steps": [{ "prompt": "simplify" }] },
+    "L2.K12": { "label": "Explain like docs",    "steps": [{ "prompt": "explain-docs" }] },
+    "L2.K8":  { "label": "Summarise changes",    "steps": [{ "prompt": "summarise-changes" }] },
+    "L2.K4":  { "label": "Match codebase style", "steps": [{ "prompt": "match-style" }] },
+
+    "L2.big.left":    { "label": "Prev prompt",  "cycle": "prompts",  "do": "prev" },
+    "L2.big.right":   { "label": "Next prompt",  "cycle": "prompts",  "do": "next" },
+    "L2.big.press":   { "label": "Use prompt",   "cycle": "prompts",  "do": "select" },
+    "L2.mid.left":    { "label": "Prev send mode", "cycle": "sendMode", "do": "prev" },
+    "L2.mid.right":   { "label": "Next send mode", "cycle": "sendMode", "do": "next" },
+    "L2.mid.press":   { "label": "Send",         "cycle": "sendMode", "do": "select" },
+    "L2.small.left":  { "label": "Zoom out",     "steps": [{ "command": "editor.action.fontZoomOut" }] },
+    "L2.small.right": { "label": "Zoom in",      "steps": [{ "command": "editor.action.fontZoomIn" }] },
+    "L2.small.press": { "label": "Reset zoom",   "steps": [{ "command": "editor.action.fontZoomReset" }] },
+
+    // ───────────── Layer 3 · Routines ─────────────
+    "L3.K9": { "label": "Ship it", "steps": [
+      { "command": "editor.action.formatDocument", "optional": true },
+      { "command": "eslint.executeAutofix", "optional": true },
+      { "command": "workbench.action.files.saveAll" },
+      { "command": "git.stageAll" },
+      { "notify": "Formatted, lint-fixed, saved and staged" }
+    ]},
+    "L3.K5":  { "label": "Run tests",         "steps": [{ "terminal": "npm test", "name": "Tests" }] },
+    "L3.K1":  { "label": "Start dev server",  "steps": [{ "terminal": "npm run dev", "name": "Dev server" }] },
+    "L3.K10": { "label": "Git pull",          "steps": [{ "command": "git.pull" }] },
+    "L3.K6":  { "label": "AI commit message", "steps": [
+      { "command": "workbench.view.scm" },
+      { "command": "cursor.generateGitCommitMessage", "optional": true }                                       // VERIFY
+    ]},
+    "L3.K2":  { "label": "Push",              "steps": [{ "command": "git.push" }] },
+    "L3.K11": { "label": "Open PR",           "steps": [{ "terminal": "gh pr create --web", "name": "Git" }] },
+    "L3.K7":  { "label": "New branch",        "steps": [{ "command": "git.branch" }] },
+    "L3.K3":  { "label": "Restart TS / Vue server", "steps": [
+      { "command": "typescript.restartTsServer", "optional": true },
+      { "command": "vue.action.restartServer", "optional": true }
+    ]},
+    "L3.K12": { "label": "Toggle terminal",   "steps": [{ "command": "workbench.action.terminal.toggleTerminal" }] },
+    "L3.K8":  { "label": "Zen mode",          "steps": [{ "command": "workbench.action.toggleZenMode" }] },
+    "L3.K4":  { "label": "Close other tabs",  "steps": [{ "command": "workbench.action.closeOtherEditors" }] },
+
+    "L3.big.left":    { "label": "Prev branch",   "cycle": "branches", "do": "prev" },
+    "L3.big.right":   { "label": "Next branch",   "cycle": "branches", "do": "next" },
+    "L3.big.press":   { "label": "Checkout",      "cycle": "branches", "do": "select" },
+    "L3.mid.left":    { "label": "Prev terminal", "steps": [{ "command": "workbench.action.terminal.focusPrevious" }] },
+    "L3.mid.right":   { "label": "Next terminal", "steps": [{ "command": "workbench.action.terminal.focusNext" }] },
+    "L3.mid.press":   { "label": "New terminal",  "steps": [{ "command": "workbench.action.terminal.new" }] },
+    "L3.small.left":  { "label": "Prev tab",      "steps": [{ "command": "workbench.action.previousEditor" }] },
+    "L3.small.right": { "label": "Next tab",      "steps": [{ "command": "workbench.action.nextEditor" }] },
+    "L3.small.press": {
+      "label": "Close tab",
+      "steps": [
+        {
+          "command": "workbench.action.closeActiveEditor"
+        }
+      ]
+    },
+    "L1.mid.press": {
+      "label": "Accept hunk",
+      "steps": [
+        {
+          "keys": "cmd+y"
+        }
+      ]
+    },
+    "L1.small.press": {
+      "label": "Auto",
+      "steps": [
+        {
+          "command": "cursorai.action.switchToModelSlug",
+          "args": {
+            "modelIdWithParams": "{\"modelId\":\"default\",\"params\":[]}"
+          },
+          "optional": true
+        },
+        {
+          "notify": "Switched to Auto"
+        }
+      ]
+    },
+    "L1.small.left":  { "label": "Prev model", "cycle": "models", "do": "prev" },
+    "L1.small.right": { "label": "Next model", "cycle": "models", "do": "next" }
+  }
+}

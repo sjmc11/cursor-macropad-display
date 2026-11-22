@@ -1,0 +1,11 @@
+node_modules/
+*.map
+.DS_Store
+
+# Clock firmware: local secrets, patched images, flash backups, build output
+firmware/secrets.env
+firmware/**/*.patched.bin
+firmware/backup/
+firmware/**/build/
+firmware/**/sdkconfig
+firmware/**/sdkconfig.old

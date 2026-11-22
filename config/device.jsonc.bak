@@ -1,0 +1,55 @@
+// Device configuration for the 12-key, 3-knob macropad (model 12KV3).
+// Describes the physical layout, the modifier combos each layer sends,
+// and which inputs the pad handles itself instead of sending to Cursor.
+{
+  // How the pad sits on your desk. Rotates the pad drawing in the editor.
+  // 0 = knobs at the bottom, 90 = knobs on the left, 180 = knobs at the top, 270 = knobs on the right.
+  "orientation": 270,
+
+  "layers": [
+    { "n": 1, "name": "Agent",    "app": "Ctrl+Alt+Shift+Win+", "vscode": "ctrl+alt+shift+cmd" },
+    { "n": 2, "name": "Prompts",  "app": "Ctrl+Shift+Alt+",     "vscode": "ctrl+alt+shift" },
+    { "n": 3, "name": "Routines", "app": "Ctrl+Alt+Win+",       "vscode": "ctrl+alt+cmd" }
+  ],
+
+  // Key layout: rows top-to-bottom when orientation is 0 (knobs at bottom).
+  // Values are Mini_Keyboard app key numbers (1–12).
+  "physicalRows": [[9, 5, 1], [10, 6, 2], [11, 7, 3], [12, 8, 4]],
+
+  // Inputs handled by the pad itself (media keys, not sent to Cursor).
+  // Edit these from the Pad UI ("Pad media"), not by hand. After changing, Program pad.
+  "appOnly": {
+  },
+  "lighting": {
+    "startup": {
+      "enabled": true,
+      "preset": "rainbowChase",
+      "fps": 18,
+      "durationMs": 800
+    },
+    "layers": {
+      "1": {
+        "mode": "static",
+        "color": "#ffaa00"
+      },
+      "2": {
+        "mode": "static",
+        "color": "#4f5503"
+      },
+      "3": {
+        "mode": "ripple"
+      }
+    }
+  },
+  "knobSlots": {
+    "small.left": 16,
+    "small.press": 17,
+    "small.right": 18,
+    "mid.left": 19,
+    "mid.press": 20,
+    "mid.right": 21,
+    "big.left": 22,
+    "big.press": 23,
+    "big.right": 24
+  }
+}

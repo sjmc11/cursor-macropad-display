@@ -1,0 +1,8 @@
+{
+  "device": "http://192.168.0.89",
+  "port": 47321,
+  "heartbeatSeconds": 30,
+  "turnTimeoutMinutes": 10,
+  "defaultContextWindow": 200000,
+  "logEvents": true
+}

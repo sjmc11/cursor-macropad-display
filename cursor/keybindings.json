@@ -1,0 +1,317 @@
+[
+  {
+    "key": "ctrl+alt+shift+cmd+a",
+    "command": "macropad.input",
+    "args": "L1.K1"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+b",
+    "command": "macropad.input",
+    "args": "L1.K2"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+c",
+    "command": "macropad.input",
+    "args": "L1.K3"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+d",
+    "command": "macropad.input",
+    "args": "L1.K4"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+e",
+    "command": "macropad.input",
+    "args": "L1.K5"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+f",
+    "command": "macropad.input",
+    "args": "L1.K6"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+g",
+    "command": "macropad.input",
+    "args": "L1.K7"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+h",
+    "command": "macropad.input",
+    "args": "L1.K8"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+i",
+    "command": "macropad.input",
+    "args": "L1.K9"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+j",
+    "command": "macropad.input",
+    "args": "L1.K10"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+k",
+    "command": "macropad.input",
+    "args": "L1.K11"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+l",
+    "command": "macropad.input",
+    "args": "L1.K12"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+m",
+    "command": "macropad.input",
+    "args": "L1.big.left"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+n",
+    "command": "macropad.input",
+    "args": "L1.big.right"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+o",
+    "command": "macropad.input",
+    "args": "L1.big.press"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+p",
+    "command": "macropad.input",
+    "args": "L1.mid.left"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+y",
+    "command": "macropad.input",
+    "args": "L1.mid.right"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+r",
+    "command": "macropad.input",
+    "args": "L1.mid.press"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+s",
+    "command": "macropad.input",
+    "args": "L1.small.left"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+t",
+    "command": "macropad.input",
+    "args": "L1.small.right"
+  },
+  {
+    "key": "ctrl+alt+shift+cmd+u",
+    "command": "macropad.input",
+    "args": "L1.small.press"
+  },
+  {
+    "key": "ctrl+alt+shift+a",
+    "command": "macropad.input",
+    "args": "L2.K1"
+  },
+  {
+    "key": "ctrl+alt+shift+b",
+    "command": "macropad.input",
+    "args": "L2.K2"
+  },
+  {
+    "key": "ctrl+alt+shift+c",
+    "command": "macropad.input",
+    "args": "L2.K3"
+  },
+  {
+    "key": "ctrl+alt+shift+d",
+    "command": "macropad.input",
+    "args": "L2.K4"
+  },
+  {
+    "key": "ctrl+alt+shift+e",
+    "command": "macropad.input",
+    "args": "L2.K5"
+  },
+  {
+    "key": "ctrl+alt+shift+f",
+    "command": "macropad.input",
+    "args": "L2.K6"
+  },
+  {
+    "key": "ctrl+alt+shift+g",
+    "command": "macropad.input",
+    "args": "L2.K7"
+  },
+  {
+    "key": "ctrl+alt+shift+h",
+    "command": "macropad.input",
+    "args": "L2.K8"
+  },
+  {
+    "key": "ctrl+alt+shift+i",
+    "command": "macropad.input",
+    "args": "L2.K9"
+  },
+  {
+    "key": "ctrl+alt+shift+j",
+    "command": "macropad.input",
+    "args": "L2.K10"
+  },
+  {
+    "key": "ctrl+alt+shift+k",
+    "command": "macropad.input",
+    "args": "L2.K11"
+  },
+  {
+    "key": "ctrl+alt+shift+l",
+    "command": "macropad.input",
+    "args": "L2.K12"
+  },
+  {
+    "key": "ctrl+alt+shift+m",
+    "command": "macropad.input",
+    "args": "L2.big.left"
+  },
+  {
+    "key": "ctrl+alt+shift+n",
+    "command": "macropad.input",
+    "args": "L2.big.right"
+  },
+  {
+    "key": "ctrl+alt+shift+o",
+    "command": "macropad.input",
+    "args": "L2.big.press"
+  },
+  {
+    "key": "ctrl+alt+shift+p",
+    "command": "macropad.input",
+    "args": "L2.mid.left"
+  },
+  {
+    "key": "ctrl+alt+shift+y",
+    "command": "macropad.input",
+    "args": "L2.mid.right"
+  },
+  {
+    "key": "ctrl+alt+shift+r",
+    "command": "macropad.input",
+    "args": "L2.mid.press"
+  },
+  {
+    "key": "ctrl+alt+shift+s",
+    "command": "macropad.input",
+    "args": "L2.small.left"
+  },
+  {
+    "key": "ctrl+alt+shift+t",
+    "command": "macropad.input",
+    "args": "L2.small.right"
+  },
+  {
+    "key": "ctrl+alt+shift+u",
+    "command": "macropad.input",
+    "args": "L2.small.press"
+  },
+  {
+    "key": "ctrl+alt+cmd+a",
+    "command": "macropad.input",
+    "args": "L3.K1"
+  },
+  {
+    "key": "ctrl+alt+cmd+b",
+    "command": "macropad.input",
+    "args": "L3.K2"
+  },
+  {
+    "key": "ctrl+alt+cmd+c",
+    "command": "macropad.input",
+    "args": "L3.K3"
+  },
+  {
+    "key": "ctrl+alt+cmd+d",
+    "command": "macropad.input",
+    "args": "L3.K4"
+  },
+  {
+    "key": "ctrl+alt+cmd+e",
+    "command": "macropad.input",
+    "args": "L3.K5"
+  },
+  {
+    "key": "ctrl+alt+cmd+f",
+    "command": "macropad.input",
+    "args": "L3.K6"
+  },
+  {
+    "key": "ctrl+alt+cmd+g",
+    "command": "macropad.input",
+    "args": "L3.K7"
+  },
+  {
+    "key": "ctrl+alt+cmd+h",
+    "command": "macropad.input",
+    "args": "L3.K8"
+  },
+  {
+    "key": "ctrl+alt+cmd+i",
+    "command": "macropad.input",
+    "args": "L3.K9"
+  },
+  {
+    "key": "ctrl+alt+cmd+j",
+    "command": "macropad.input",
+    "args": "L3.K10"
+  },
+  {
+    "key": "ctrl+alt+cmd+k",
+    "command": "macropad.input",
+    "args": "L3.K11"
+  },
+  {
+    "key": "ctrl+alt+cmd+l",
+    "command": "macropad.input",
+    "args": "L3.K12"
+  },
+  {
+    "key": "ctrl+alt+cmd+m",
+    "command": "macropad.input",
+    "args": "L3.big.left"
+  },
+  {
+    "key": "ctrl+alt+cmd+n",
+    "command": "macropad.input",
+    "args": "L3.big.right"
+  },
+  {
+    "key": "ctrl+alt+cmd+o",
+    "command": "macropad.input",
+    "args": "L3.big.press"
+  },
+  {
+    "key": "ctrl+alt+cmd+p",
+    "command": "macropad.input",
+    "args": "L3.mid.left"
+  },
+  {
+    "key": "ctrl+alt+cmd+y",
+    "command": "macropad.input",
+    "args": "L3.mid.right"
+  },
+  {
+    "key": "ctrl+alt+cmd+r",
+    "command": "macropad.input",
+    "args": "L3.mid.press"
+  },
+  {
+    "key": "ctrl+alt+cmd+s",
+    "command": "macropad.input",
+    "args": "L3.small.left"
+  },
+  {
+    "key": "ctrl+alt+cmd+t",
+    "command": "macropad.input",
+    "args": "L3.small.right"
+  },
+  {
+    "key": "ctrl+alt+cmd+u",
+    "command": "macropad.input",
+    "args": "L3.small.press"
+  }
+]

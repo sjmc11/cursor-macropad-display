@@ -1,0 +1,48 @@
+{
+  "name": "macropad",
+  "displayName": "Macropad",
+  "description": "Drives Cursor from a 12-key, 3-knob macro pad: saved prompts, routines and knob cycling.",
+  "version": "0.3.0",
+  "publisher": "jack-local",
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": { "type": "git", "url": "local" },
+  "engines": { "vscode": "^1.90.0" },
+  "categories": ["Other"],
+  "main": "./out/extension/src/extension.js",
+  "activationEvents": ["onStartupFinished"],
+  "contributes": {
+    "commands": [
+      { "command": "macropad.input", "title": "Macropad: Trigger input (by id)" },
+      { "command": "macropad.pastePrompt", "title": "Macropad: Paste saved prompt" },
+      { "command": "macropad.reloadConfig", "title": "Macropad: Reload config" },
+      { "command": "macropad.openConfig", "title": "Macropad: Open config" },
+      { "command": "macropad.findCommands", "title": "Macropad: Find command IDs" },
+      { "command": "macropad.testBridge", "title": "Macropad: Test Hammerspoon bridge" },
+      { "command": "macropad.exportCommands", "title": "Macropad: Export command IDs" },
+      { "command": "macropad.cycleModelEffort", "title": "Macropad: Cycle model effort / thinking" }
+    ],
+    "configuration": {
+      "title": "Macropad",
+      "properties": {
+        "macropad.configPath": {
+          "type": "string",
+          "default": "~/Documents/WebProjects/macro-controller/config/macropad.jsonc",
+          "description": "Path to the macropad JSONC config file."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -watch -p .",
+    "package": "npm run compile && vsce package --no-dependencies --allow-missing-repository --skip-license -o ../dist/macropad-0.2.0.vsix"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "~1.90.0",
+    "@vscode/vsce": "^3.3.0",
+    "typescript": "^5.6.0"
+  }
+}
