@@ -2,6 +2,10 @@
 
 A desk setup for Cursor: a 12-key, 3-knob macro pad for prompts and model switching, plus a small WiFi display that shows agent status live.
 
+<p align="center">
+  <img src="device-mockup.png" alt="Cursor status display on the desk" width="480">
+</p>
+
 ```
 Macro pad ──(USB key combos)──▶ Cursor keybindings
    ──▶ macropad extension (config/macropad.jsonc)
